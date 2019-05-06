@@ -1,0 +1,51 @@
+<div *ngIf="onAdd" class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Produit ajouté avec succèss</strong>
+</div>
+
+<div *ngIf="onEdit" class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Produit modifié avec succèss</strong>
+</div>
+
+<div class="card-body">
+  <div >
+    <div role="document" class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 id="exampleModalLabel" class="modal-title">
+            {{ new ? 'Ajouter un nouveau produit' : 'Modifier un produit'}}
+          </h4>
+        </div>
+        <form [formGroup]="form" (ngSubmit)="new ? add() : edit()">
+          <div class="modal-body">
+            <div class="form-group">
+              <label class="form-control-label" for="input-name">Nom</label>
+              <input id="input-name" type="text" placeholder="Nom du produit" class="form-control" formControlName="name">
+            </div>
+            <div class="form-group">
+              <label for="input-qty" class="form-control-label">Quantité</label>
+              <input id="input-qty" type="number" min="0" placeholder="Quantité" class="form-control" formControlName="quantity">
+            </div>
+            <div class="form-group">
+              <label for="input-price" class="form-control-label">Prix HT</label>
+              <input id="input-price" type="number" min="0" placeholder="Prix HT" class="form-control" formControlName="price">
+            </div>
+            <div class="form-group">
+              <label for="textarea-desc" class="form-control-label">Description</label>
+              <textarea id="textarea-desc" name="name" rows="3" class="form-control" formControlName="description"></textarea>
+            </div>
+            <div class="form-group">
+              <div class="i-checks">
+                <input id="input-av" type="checkbox" value="" class="checkbox-template" formControlName="available">
+                <label for="input-av" class="form-control-label">Disponible</label>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button (click)="back()" type="button" class="btn btn-secondary">Retour</button>
+            <button type="submit" class="btn btn-primary" [disabled]="form.invalid">{{ new ? 'Ajouter' : 'Modifier' }}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

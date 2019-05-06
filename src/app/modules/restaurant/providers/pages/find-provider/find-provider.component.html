@@ -1,0 +1,50 @@
+<header class="page-header">
+  <div class="container-fluid">
+    <h2 class="no-margin-bottom">Fournisseurs</h2>
+  </div>
+</header>
+
+<div class="breadcrumb-holder container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: none!important; box-shadow: none">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/restaurant/my-providers">Mes fournisseurs</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/restaurant/find-provider">Trouvé des fournisseurs</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/restaurant/pending-request">Demande en attente</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<div *ngIf="request" class="alert alert-primary alert-dismissible fade show" role="alert">
+  <strong>Demande envoyer</strong>
+</div>
+
+<section class="tables">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6" *ngFor="let provider of providers">
+        <div class="card h-100">
+          <div class="card-header d-flex align-items-center">
+            <h4>{{provider.name}}</h4>
+          </div>
+          <div class="card-body">
+            {{provider.presentation}}
+          </div>
+          <div class="card-footer">
+            <p><button (click)="link(provider._id)" type="button" name="button" class="btn btn-primary">Envoyer une demande</button></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

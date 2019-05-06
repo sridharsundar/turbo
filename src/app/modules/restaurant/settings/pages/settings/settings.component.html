@@ -1,0 +1,126 @@
+<header class="page-header">
+  <div class="container-fluid">
+    <h2 class="no-margin-bottom">Profile</h2>
+  </div>
+</header>
+<div class="breadcrumb-holder container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: none!important; box-shadow: none">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/restaurant/profile">Profile</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/restaurant/settings">Paramètres</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<div *ngIf="editEmail" class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Email modifier</strong>
+</div>
+<div *ngIf="editPassword" class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Mot de passe modifier</strong>
+</div>
+<div *ngIf="passwordChangeFalse" class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Mot de passe incorrect</strong>
+</div>
+
+<div class="row" style="padding: 15px;">
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-header d-flex align-items-center">
+        <h3 class="h4">Votre email</h3>
+      </div>
+      <div class="card-body">
+        <form *ngIf="emailForm" class="form-horizontal" [formGroup]="emailForm" (ngSubmit)="resetEmail()">
+          <div class="form-group row">
+            <label class="col-sm-5 form-control-label">Adresse e-mail actuelle</label>
+            <div class="col-sm-7">
+              <input
+                [ngClass]="{'is-invalid': clickE && f.email.invalid && f.email.touched && f.email.errors.required}"
+                type="email" class="form-control form-control-success" formControlName="email">
+                <div class="invalid-feedback">
+                   Email obligatoire
+                 </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-5 form-control-label">Nouvel e-mail</label>
+            <div class="col-sm-7">
+              <input
+                [ngClass]="{'is-invalid': clickE && f.newEmail.invalid && f.newEmail.touched && f.newEmail.errors.required}"
+                type="email" class="form-control form-control-warning" formControlName="newEmail">
+                <div class="invalid-feedback">
+                   Nouveau email obligatoire
+                 </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="offset-sm-8 col-sm-4">
+              <input type="submit" value="Mettre à jour" class="btn btn-primary">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-header d-flex align-items-center">
+        <h3 class="h4">Changer votre mot de passe</h3>
+      </div>
+      <div class="card-body">
+        <form class="form-horizontal" [formGroup]="passwordForm" (ngSubmit)="resetPassword()">
+          <div *ngIf="dontMatch" class="alert-danger m-2 p-1">
+             Le nouveau mot de passe ne correspond pas
+           </div>
+           <div class="form-group row">
+             <label class="col-sm-5 form-control-label">Ancien mot de passe</label>
+             <div class="col-sm-7">
+               <input
+                 [ngClass]="{'is-invalid': clickP && fP.password.invalid && fP.password.touched && fP.password.errors.required}"
+                 type="password"  class="form-control form-control-success" formControlName="password">
+                 <div class="invalid-feedback">
+                    Mot de passe obligatoire
+                  </div>
+             </div>
+           </div>
+           <div class="form-group row">
+             <label class="col-sm-5 form-control-label">Nouveau mot de passe</label>
+             <div class="col-sm-7">
+               <input
+                 [ngClass]="{'is-invalid': clickP && fP.newPassword.invalid && fP.newPassword.touched && fP.newPassword.errors.required}"
+                 type="password"  class="form-control form-control-warning" formControlName="newPassword" >
+                  <div class="invalid-feedback">
+                     Ecrire votre nouveau mot passe
+                   </div>
+             </div>
+           </div>
+           <div class="form-group row">
+             <label class="col-sm-5 form-control-label">Réécrire nouveau mot de passe</label>
+             <div class="col-sm-7">
+               <input
+                 [ngClass]="{'is-invalid': clickP && fP.confirmPassword.invalid && fP.confirmPassword.touched && fP.confirmPassword.errors.required}"
+                 type="password" class="form-control form-control-warning" formControlName="confirmPassword">
+                  <div class="invalid-feedback">
+                     Confimer votre nouveau mot passe
+                   </div>
+             </div>
+           </div>
+          <div class="form-group row">
+            <div class="col-sm-4 offset-sm-8">
+              <input type="submit" value="Mettre à jour" class="btn btn-primary">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

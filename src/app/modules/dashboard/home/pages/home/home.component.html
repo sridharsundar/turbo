@@ -1,0 +1,36 @@
+<dashboard-title icon="ti ti-dashboard" [title]="title"></dashboard-title>
+
+<section class="dashboard-counts no-padding-bottom">
+  <div class="container-fluid">
+    <div class="row bg-white has-shadow">
+
+      <div class="col-xl-4 col-sm-6">
+        <div class="item d-flex align-items-center">
+          <div class="icon bg-primary"><i class="ti ti-layout-list-thumb"></i></div>
+          <div class="title"><span>Catalogues</span>
+          </div>
+          <div class="number"><strong>{{catalogs}}</strong></div>
+        </div>
+      </div>
+
+      <div class="col-xl-4 col-sm-6">
+        <div class="item d-flex align-items-center">
+          <div class="icon bg-secondary"><i class="ti ti-user"></i></div>
+          <div class="title"><span>Clients</span>
+          </div>
+          <div class="number"><strong>{{clients}}</strong></div>
+        </div>
+      </div>
+
+      <div class="col-xl-4 col-sm-6">
+        <div class="item d-flex align-items-center">
+          <div class="icon bg-primary"><i class="ti ti-notepad"></i></div>
+          <div class="title"><span>Commandes</span>
+          </div>
+          <div class="number"><strong>{{orders}}</strong></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

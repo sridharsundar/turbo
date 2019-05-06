@@ -1,0 +1,127 @@
+<div class="container-scroller">
+  <div class="container-fluid page-body-wrapper full-page-wrapper">
+    <div class="content-wrapper d-flex align-items-center text-center error-page bg-primary">
+      <div class="row flex-grow">
+        <div class="col-lg-7 mx-auto text-white">
+          <div class="row align-items-center d-flex flex-row">
+            <div class="col-lg-6 text-lg-right pr-lg-4">
+              <h1 class="display-1 mb-0">404</h1>
+            </div>
+            <div class="col-lg-6 error-page-divider text-lg-left pl-lg-4">
+              <h2>Désolé!</h2>
+              <h3 class="font-weight-light">La  page que vous cherchiez n'existe pas.</h3>
+            </div>
+          </div>
+          <div class="row mt-5">
+            <div class="col-12 text-center mt-xl-2">
+              <a class="text-white font-weight-medium" href="../">Retourner</a>
+            </div>
+          </div>
+          <div class="row mt-5">
+            <div class="col-12 mt-xl-2">
+              <p class="text-white font-weight-medium text-center">Copyright &copy; 2018  All rights reserved.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<style media="screen">
+  .container-scroller {
+    overflow: hidden;
+}
+
+.page-body-wrapper.full-page-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 0;
+}
+
+.page-body-wrapper {
+    min-height: calc(100vh - 70px);
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 70px;
+}
+
+.container-fluid {
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.content-wrapper {
+    background: #f2edf3;
+    padding: 2.75rem 2.25rem;
+    width: 100%;
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.flex-grow {
+    flex-grow: 1;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -20px;
+    margin-left: -20px;
+}
+
+.text-white {
+    color: #ffffff !important;
+}
+
+.ml-auto, .mx-auto {
+    margin-left: auto !important;
+}
+
+.mr-auto, .mx-auto {
+    margin-right: auto !important;
+}
+
+@media (min-width: 992px)
+.col-lg-7 {
+    flex: 0 0 58.33333%;
+    max-width: 58.33333%;
+}
+
+.error-page h1 {
+    font-size: 12rem;
+}
+
+.mb-0, .my-0 {
+    margin-bottom: 0 !important;
+}
+
+.display-1 {
+    font-size: 6rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.mt-5, .my-5 {
+    margin-top: 3rem !important;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -20px;
+    margin-left: -20px;
+}
+</style>

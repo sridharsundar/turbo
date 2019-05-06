@@ -1,0 +1,71 @@
+<dashboard-title icon="ti ti-user" [title]="title"></dashboard-title>
+
+<section class="tables">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header align-items-center">
+            <div class="">
+              <h1>{{category.name}}</h1>
+            </div>
+            <br>
+            <button (click)="new()" type="button" class="btn btn-primary btn-new"><i class="ti ti-plus"></i> Nouveau produit</button>
+          </div>
+          <div class="card-body">
+
+            <div class="table-responsive">
+              <table class="table table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th>Produit</th>
+                    <th>Prix HT</th>
+                    <th>Qte en stock</th>
+                    <th>Origine </th>
+                    <th>Format</th>
+                    <th>Disponible</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody class="empty-table">
+                  <tr *ngIf="isLoading">
+                    <td colspan="6"><i class="fa fa-spinner fa-spin" style="font-size:24px"></i></td>
+                  </tr>
+                </tbody>
+                <tbody  *ngIf="category != null">
+                  <tr *ngFor="let product of category.products">
+                    <td>{{product.name}}</td>
+                    <td>{{product.price}}</td>
+                    <td>{{product.quantity}}</td>
+                    <td>{{product.origin}}</td>
+                    <td>{{product.format}}</td>
+                    <td>{{product.available ? 'Oui' : 'Non'}}</td>
+                    <td class="td-actions">
+                      <button type="button" class="btn btn-info btn-option" name="button" (click)="details(product)">
+                        <i class="ti ti-eye"></i>
+                      </button>
+                      <button type="button" class="btn btn-warning btn-option" name="button" (click)="edit(product)">
+                        <i class="ti-pencil-alt"></i>
+                      </button>
+                      <button type="button" class="btn btn-danger btn-option" name="button" (click)="delete(product)">
+                        <i class="ti ti-trash"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+                <tbody class="empty-table">
+                  <tr *ngIf="category.products.length == 0">
+                    <td colspan="6">Aucun produit</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<new-product-modal (onNew)="onNew($event)" [category]="category" [seller]="seller"></new-product-modal>

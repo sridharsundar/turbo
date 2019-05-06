@@ -1,0 +1,14 @@
+<ngx-smart-modal #modalOwnerContact [identifier]="'modalOwnerContact'">
+  <div *ngIf="owner" class="card-body">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="exampleModalLabel" class="modal-title">{{owner.name}}</h4>
+      </div>
+      <div class="modal-body">
+        <p>Tel : {{owner?.tel}}</p>
+        <p>Email : {{owner?.email}}</p>
+        <p>Ville : {{owner?.city}}</p>
+      </div>
+    </div>
+  </div>
+</ngx-smart-modal>

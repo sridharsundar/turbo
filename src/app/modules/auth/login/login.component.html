@@ -1,0 +1,48 @@
+<div class="container-scroller">
+  <div class="container-fluid page-body-wrapper full-page-wrapper">
+    <div class="content-wrapper d-flex align-items-center auth">
+      <div class="row w-100">
+        <div class="col-lg-4 mx-auto">
+          <div class="auth-form-light text-left p-5">
+            <div class="brand-logo">
+              <h3 style="border-left: 3px #ddd solid;" class="pl-2">Connexion</h3>
+            </div>
+
+            <form class="" [formGroup]="form" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <input type="email"
+                  [ngClass]="{'is-invalid': f.email.invalid && f.email.touched && f.email.errors.required}"
+                  class="form-control form-control-lg" placeholder="Email" formControlName="email">
+                  <div class="invalid-feedback">
+                     Email obligatoire
+                   </div>
+              </div>
+              <div class="form-group">
+                <input type="password"
+                  [ngClass]="{'is-invalid': f.password.invalid && f.password.touched && f.password.errors.required}"
+                  class="form-control form-control-lg" placeholder="Mot de passe" formControlName="password">
+                <div class="invalid-feedback">
+                   Mot de passe obligatoire
+                 </div>
+              </div>
+              <div class="mt-3">
+                <div class="text-right">
+                  <a routerLink="/auth/forgot-password" class="text-primary text-small">Mot de passe oublié</a>
+                </div>
+              </div>
+              <div class="mt-3">
+                <button type="submit" class="tn btn-block btn btn-primary" [disabled]="loading">
+                  <span *ngIf="!loading">Connexion</span>
+                  <i *ngIf="loading" class="fa fa-spinner fa-spin" style="font-size:24px"></i></button>
+              </div>
+
+              <div class="text-center mt-4 font-weight-light">
+                Vous n'avez pas de compte? <a routerLink="/auth/register" class="text-primary">Créer</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

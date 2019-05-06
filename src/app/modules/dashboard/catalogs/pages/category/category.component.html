@@ -1,0 +1,29 @@
+<dashboard-title icon="ti ti-layout-list-thumb" [title]="title"></dashboard-title>
+
+<section class="tables">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header d-flex align-items-center">
+            <button (click)="new()" type="button" class="btn btn-primary btn-new"><i class="ti ti-plus"></i> Nouveau prodiut</button>
+            <!-- <div class="col-md-5">
+              <input [(ngModel)]="search" type="text" placeholder="Chercher un produit" class="form-control">
+            </div> -->
+          </div>
+          <div class="card-body">
+            <!-- <app-catalog-list
+              [catalogs]="catalogs | catalogFilter : search"
+              (onEdit)="onEdit($event)"
+              (onDelete)="onDelete()">
+            </app-catalog-list> -->
+            <product-list [category]="category" [isLoading]="isLoading" (onEdit)="onEdit($event)"></product-list>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<new-product-modal (onNew)="onNew($event)" [category]="category"></new-product-modal>
+<edit-product-modal (onOpen)="console.log('Modal opened!')" (onEdit)="edit($event)" *ngIf="selectedProduct" [product]="selectedProduct" [categoryId]="category._id" ></edit-product-modal>

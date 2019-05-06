@@ -1,0 +1,43 @@
+<dashboard-title icon="ti ti-user" [title]="'Clients'"></dashboard-title>
+
+<div class="breadcrumb-holder container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: none!important; box-shadow: none">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/board/my-restaurants">Mes Clients</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/board/pending-request">Demande en attente</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<div *ngIf="request" class="alert alert-primary alert-dismissible fade show" role="alert">
+  <strong>Demande confirmer</strong>
+</div>
+
+<section class="tables">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6" *ngFor="let result of results">
+        <div class="card h-100">
+          <div class="card-header d-flex align-items-center">
+            <h4>{{result.restaurant.name}}</h4>
+          </div>
+          <div class="card-body">
+            {{result.restaurant.presentation}}
+          </div>
+          <div class="card-footer">
+            <p><button (click)="confirm(result.provider, result.restaurant._id)" type="button" name="button" class="btn btn-primary">Acceptez</button></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

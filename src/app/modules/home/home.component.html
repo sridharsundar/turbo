@@ -1,0 +1,34 @@
+<div class="page">
+  <header class="header home-navbar">
+    <nav class="navbar">
+      <div class="container-fluid">
+        <div class="navbar-holder d-flex align-items-center justify-content-between">
+          <div class="navbar-header">
+            <a routerLink="/" class="navbar-brand">
+              <div class="brand-text"><strong>Turbo Food</strong></div>
+            </a>
+          </div>
+          <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+            <li class="nav-item" *ngIf="!isLog">
+              <a  routerLink="/auth/login" class="nav-item-link" name="button">Connexion</a>
+            </li>
+            <li class="nav-item" *ngIf="!isLog">
+              <a  routerLink="/auth/register" class="nav-item-link">Inscription</a>
+            </li>
+            <li class="nav-item" *ngIf="isLog">
+              <a routerLink="/board/catalogues" name="button" class="nav-item-link">Tableau de bord</a>
+            </li>
+            <li class="nav-item" *ngIf="isLog">
+              <a routerLink="/auth/logout" name="button" class="nav-item-link">Deconexion</a>
+            </li>
+            <li class="nav-item">
+              <a  href="https://www.dropbox.com/request/rSQRUxTLYDD60UZOtNVu?oref=e" target="_blank" class="nav-item-link active">Déposer votre catalogue</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+</div>
+
+<router-outlet></router-outlet>

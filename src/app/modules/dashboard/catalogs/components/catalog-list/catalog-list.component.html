@@ -1,0 +1,38 @@
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Nom du produit</th>
+        <th>Quantité</th>
+        <th>Prix HT</th>
+        <th>Disponibilité</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of catalogs">
+        <td>{{product.name}}</td>
+        <td>{{product.quantity}}</td>
+        <td>{{product.price}}</td>
+        <td>
+          <div class="i-checks">
+            <input type="checkbox"  [checked]="product.available" class="checkbox-template" disabled>
+          </div>
+        </td>
+        <td>
+          <a [routerLink]="'/provider/catalogues/' + product._id" class="btn btn-info btn-option" name="button"> <i class="fa fa-eye"></i></a>
+        </td>
+        <td>
+          <button type="button" class="btn btn-warning btn-option" name="button" (click)="edit(product._id)">
+            <i class="fa fa-edit"></i>
+          </button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-danger btn-option" name="button" (click)="delete(product)">
+            <i class="fa fa-trash"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

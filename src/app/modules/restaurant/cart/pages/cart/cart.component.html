@@ -1,0 +1,60 @@
+<header class="page-header">
+  <div class="container-fluid">
+    <h2 class="no-margin-bottom">Panier</h2>
+  </div>
+</header>
+
+<div *ngIf="onAdd" class="alert alert-primary alert-dismissible fade show" role="alert">
+  <strong>Votre commande à été envoyée au fournisseur</strong>
+</div>
+
+<section class="tables">
+  <div class="container-fluid">
+    <div class="row" *ngFor="let cart of carts" >
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <h4>{{cart.provider}}</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th>Produit</th>
+                    <th>Quantité</th>
+                    <th>PU HT</th>
+                    <th>Montant HT</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let product of cart.products">
+                    <th scope="row">{{product.name}}</th>
+                    <td>{{product.quantity}}</td>
+                    <td>{{product.price}}</td>
+                    <td>{{product.total}}</td>
+                    <!-- <td><button (click)="removeItem(cart.providerId, product._id)" type="button" class="btn btn-danger btn-option" name="button"> Retirer</button></td> -->
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card-footer">
+            <button style="float: right" type="button" class="btn btn-primary" name="button">Total : {{cart.total}}</button>
+            <button (click)="checkout(cart.providerId)" type="button" class="btn btn-primary btn-option" name="button">Passer la Commande</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="carts && carts.length === 0" class="">
+      <div style="text-align: center;">
+        <img src="assets/img/empty-cart.png" alt="Empty Cart" class="img-fluid" style="width: 30%">
+        <br><br>
+        <p><span style="font-size: 20px">Vous n'avez aucun élément dans votre panier</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- {{providers?[0].products |json }} -->

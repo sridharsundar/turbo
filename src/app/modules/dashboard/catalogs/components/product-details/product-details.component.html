@@ -1,0 +1,17 @@
+<ngx-smart-modal [identifier]="'modalDetailsProduct'">
+  <div class="card-body">
+    <div class="modal-content" *ngIf="product">
+      <div class="modal-header">
+        <h4 class="modal-title">{{product.name}}</h4>
+      </div>
+      <div class="modal-body">
+        <p>Prix : {{product.price}}</p>
+        <p>Qte : {{product.quantity}}</p>
+        <p>Origine : {{product.origin}}</p>
+        <p>Format : {{product.format}}</p>
+        <p>Disponible : {{product.available ? 'Oui' : 'Non'}}</p>
+        <p>Description : {{product.description}}</p>
+      </div>
+    </div>
+  </div>
+</ngx-smart-modal>

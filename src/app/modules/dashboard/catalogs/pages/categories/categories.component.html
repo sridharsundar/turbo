@@ -1,0 +1,24 @@
+<dashboard-title icon="ti ti-layout-list-thumb" title="Categories"></dashboard-title>
+
+<section class="tables">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header d-flex align-items-center">
+            <button (click)="new()" type="button" class="btn btn-primary btn-new"><i class="ti ti-plus"></i> Nouvelle categorie</button>
+            <!-- <div class="col-md-5">
+              <input [(ngModel)]="search" type="text" placeholder="Chercher un produit" class="form-control">
+            </div> -->
+          </div>
+          <div class="card-body">
+            <category-list [categories]="categories" [isLoading]="isLoading" (onEdit)="onEdit($event)"></category-list>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<new-category-modal (onNew)="onNew($event)"></new-category-modal>
+<edit-category-modal *ngIf="selectedCategory" [category]="selectedCategory" (onEdit)="edit($event)"></edit-category-modal>

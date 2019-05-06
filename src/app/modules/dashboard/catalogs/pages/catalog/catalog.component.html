@@ -1,0 +1,40 @@
+<header class="page-header">
+  <div class="container-fluid">
+    <h2 class="no-margin-bottom page-title">Catalogues</h2>
+  </div>
+</header>
+
+<!-- Breadcrumb-->
+<div class="breadcrumb-holder container-fluid">
+  <ul class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/provider/catalogues">Catalogues</a></li>
+    <li class="breadcrumb-item active">Détails</li>
+  </ul>
+</div>
+
+
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <p><strong>Désignation : </strong> {{product?.name}}</p>
+          <p><strong>Prix HT : </strong> {{product?.price}}</p>
+          <p><strong>Quantité : </strong> {{product?.quantity}}</p>
+          <p><strong>Disponible : </strong> {{product?.available ? 'Oui' : 'Non'}}</p>
+          <p><strong>Description : </strong> {{product?.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body btn btn-secondary" style="height: 200px;">
+
+        </div>
+      </div>
+    </div>
+  </div> -->
+</div>

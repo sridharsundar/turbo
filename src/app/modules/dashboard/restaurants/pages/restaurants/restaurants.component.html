@@ -1,0 +1,26 @@
+<dashboard-title icon="ti ti-user" [title]="'Clients'"></dashboard-title>
+
+<section class="tables">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-4" *ngFor="let restaurant of restaurants">
+        <div class="card h-100">
+          <div class="card-header d-flex align-items-center">
+            <h4>{{restaurant.name}}</h4>
+          </div>
+          <div class="card-body">
+            {{restaurant.description}}
+          </div>
+          <div *ngIf="restaurant.email || restaurant.phone" class="card-footer">
+            <p *ngIf="restaurant.email">
+              <i class="fa fa-envelope"></i> {{restaurant.email}}
+            </p>
+            <p *ngIf="restaurant.phone">
+              <i class="fa fa-phone"></i> {{restaurant.phone}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

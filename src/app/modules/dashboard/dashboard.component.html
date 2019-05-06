@@ -1,0 +1,118 @@
+<div class="page">
+  <!-- Main Navbar-->
+  <header class="header">
+    <nav class="navbar">
+      <div class="container-fluid">
+        <div class="navbar-holder d-flex align-items-center justify-content-between">
+          <!-- Navbar Header-->
+          <div class="navbar-header">
+            <!-- Navbar Brand -->
+            <div class="navbar-brand d-none d-sm-inline-block">
+              <div class="brand-text d-none d-lg-inline-block"><strong> Turbo Food </strong></div>
+              <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>Turbo Food</strong></div>
+            </div>
+            <!-- Toggle Button-->
+            <a href="#" id="toggle-btn" class="menu-btn active" style="cursor: pointer;">
+              <span></span><span></span><span></span>
+            </a>
+          </div>
+          <!-- Navbar Menu -->
+          <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+            <!-- Notifications-->
+            <!-- <li class="nav-item dropdown"> <a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-bell-o"></i><span class="badge bg-red badge-corner">12</span></a>
+              <ul aria-labelledby="notifications" class="dropdown-menu">
+                <li><a rel="nofollow" href="#" class="dropdown-item">
+                    <div class="notification">
+                      <div class="notification-content"><i class="fa fa-envelope bg-green"></i>You have 6 new messages </div>
+                      <div class="notification-time"><small>4 minutes ago</small></div>
+                    </div></a></li>
+                <li><a rel="nofollow" href="#" class="dropdown-item">
+                    <div class="notification">
+                      <div class="notification-content"><i class="fa fa-twitter bg-blue"></i>You have 2 followers</div>
+                      <div class="notification-time"><small>4 minutes ago</small></div>
+                    </div></a></li>
+                <li><a rel="nofollow" href="#" class="dropdown-item">
+                    <div class="notification">
+                      <div class="notification-content"><i class="fa fa-upload bg-orange"></i>Server Rebooted</div>
+                      <div class="notification-time"><small>4 minutes ago</small></div>
+                    </div></a></li>
+                <li><a rel="nofollow" href="#" class="dropdown-item">
+                    <div class="notification">
+                      <div class="notification-content"><i class="fa fa-twitter bg-blue"></i>You have 2 followers</div>
+                      <div class="notification-time"><small>10 minutes ago</small></div>
+                    </div></a></li>
+                <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center"> <strong>view all notifications                                            </strong></a></li>
+              </ul>
+            </li> -->
+            <!-- Messages                        -->
+            <!-- <li class="nav-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-envelope-o"></i><span class="badge bg-orange badge-corner">3</span></a>
+              <ul aria-labelledby="notifications" class="dropdown-menu">
+                <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
+                    <div class="msg-profile"> <img src="../../../../../assets/img/mockup6.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                    <div class="msg-body">
+                      <h3 class="h5">Restaurant 1</h3><span>Vous envoyez un message</span>
+                    </div></a></li>
+                <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
+                    <div class="msg-profile"> <img src="../../../../../assets/img/mockup6.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                    <div class="msg-body">
+                      <h3 class="h5">Restaurant 2</h3><span>Vous envoyez un message</span>
+                    </div></a></li>
+                <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
+                    <div class="msg-profile"> <img src="../../../../../assets/img/mockup6.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                    <div class="msg-body">
+                      <h3 class="h5">Restaurant 8</h3><span>Vous envoyez un message</span>
+                    </div></a></li>
+                <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center"> <strong>Voir tous les messages   </strong></a></li>
+              </ul>
+            </li> -->
+            <li class="nav-item dropdown">
+              <a id="messages" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link">
+                <span class="user-icon">{{user?.name | uppercase | slice:0:1}}</span>
+              </a>
+              <ul class="dropdown-menu">
+                <!-- <li>
+                  <a routerLink="/board/settings" class="dropdown-item d-flex"> <span class="d-none d-sm-inline"></span><i class="ti ti-user"></i> Profil</a>
+                </li> -->
+                <li>
+                  <a routerLink="/board/settings" class="dropdown-item d-flex"> <span class="d-none d-sm-inline"></span><i class="ti ti-settings"></i> Paramètres</a>
+                </li>
+                <!-- <li>
+                  <a routerLink="/board/settings" class="dropdown-item d-flex"> <span class="d-none d-sm-inline"></span><i class="fa fa-codg"></i> </a>
+                </li> -->
+                <li><a routerLink="/auth/logout"class="dropdown-item d-flex"> <span class="d-none d-sm-inline"></span><i class="ti ti-power-off"></i> Deconexion</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="page-content d-flex align-items-stretch">
+    <nav class="side-navbar">
+      <div class="sidebar-header d-flex align-items-center">
+        <a routerLink="settings">
+          <!-- <div class="avatar"><img src=".. /../../../../assets/img/mockup6.jpg" alt="..." class="img-fluid rounded-circle" style="width: 50px; height: 50px;"></div> -->
+        </a>
+        <a routerLink="/board/profile">
+          <div class="title">
+            <h1 class="h4"><span class="user-icon mr-2">{{user?.name | uppercase | slice:0:1}}</span> {{user?.name}}</h1>
+          </div>
+        </a>
+      </div>
+      <ul class="list-unstyled">
+        <!-- <li routerLinkActive="active"><a routerLink="/board/dashboard"> <i class="ti ti-dashboard"></i>Tableau de bord </a></li> -->
+        <li routerLinkActive="active"><a routerLink="/board/catalogues"> <i class="ti ti-layout-list-thumb"></i>Catalogues </a></li>
+        <li routerLinkActive="active"><a routerLink="/board/my-restaurants"> <i class="ti ti-user"></i>Clients </a></li>
+        <li routerLinkActive="active"><a routerLink="/board/orders"> <i class="ti ti-notepad"></i>Commandes </a></li>
+        <!-- <li routerLinkActive="active"><a routerLink="cart"> <i class="fa fa-shopping-cart"></i>Panier </a></li> -->
+        <!-- <li routerLinkActive="active"><a routerLink="orders"> <i class="fa fa-list-alt"></i>Commandes </a></li> -->
+        <!-- <li routerLinkActive="active"><a routerLink="my-providers"> <i class="fa fa-users"></i>Fournisseurs </a></li> -->
+        <li ><a routerLink="/"> <i class="ti ti-home"></i>Page d'accueil </a></li>
+      </ul>
+    </nav>
+    <div class="content-inner">
+      <router-outlet></router-outlet>
+      <app-dashboard-footer></app-dashboard-footer>
+    </div>
+  </div>
+</div>

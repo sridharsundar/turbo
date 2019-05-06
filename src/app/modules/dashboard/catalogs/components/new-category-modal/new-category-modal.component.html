@@ -1,0 +1,21 @@
+<ngx-smart-modal #modalNewCategory [identifier]="'modalNewCategory'">
+  <div class="card-body">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="exampleModalLabel" class="modal-title">Ajouter une nouelle categorie</h4>
+      </div>
+      <form [formGroup]="form" (ngSubmit)="save()">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-control-label">Nom de la categorie</label>
+            <input type="text" placeholder="Nom" class="form-control" formControlName="name">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button (click)="modalNewCategory.close()" type="button" class="btn btn-secondary">Annuler</button>
+          <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Ajouter</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</ngx-smart-modal>

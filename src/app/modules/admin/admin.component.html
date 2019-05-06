@@ -1,0 +1,58 @@
+<div class="page">
+  <!-- Main Navbar-->
+  <header class="header">
+    <nav class="navbar">
+      <div class="container-fluid">
+        <div class="navbar-holder d-flex align-items-center justify-content-between">
+          <!-- Navbar Header-->
+          <div class="navbar-header">
+            <!-- Navbar Brand -->
+            <div class="navbar-brand d-none d-sm-inline-block">
+              <div class="brand-text d-none d-lg-inline-block"><strong> Turbo Food </strong></div>
+              <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>Turbo Food</strong></div>
+            </div>
+            <!-- Toggle Button-->
+            <a href="#" id="toggle-btn" class="menu-btn active" style="cursor: pointer;">
+              <span></span><span></span><span></span>
+            </a>
+          </div>
+          <!-- Navbar Menu -->
+          <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+            <li class="nav-item dropdown">
+              <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link">
+                <span class="user-icon">A</span>
+              </a>
+              <ul class="dropdown-menu">
+                <!-- <li>
+                  <a rel="nofollow" routerLink="/provider/settings" class="dropdown-item d-flex"> <span class="d-none d-sm-inline"></span><i class="ti ti-user"></i> Profil</a>
+                </li>
+                <li>
+                  <a rel="nofollow" routerLink="/provider/settings" class="dropdown-item d-flex"> <span class="d-none d-sm-inline"></span><i class="ti ti-settings"></i> Paramètres</a>
+                </li>
+                <li>
+                  <a rel="nofollow" routerLink="/provider/settings" class="dropdown-item d-flex"> <span class="d-none d-sm-inline"></span><i class="fa fa-codg"></i> </a>
+                </li> -->
+                <li><a routerLink="/auth/logout" rel="nofollow" class="dropdown-item d-flex"> <span class="d-none d-sm-inline"></span><i class="ti ti-power-off"></i> Deconexion</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="page-content d-flex align-items-stretch">
+    <nav class="side-navbar">
+      <ul class="list-unstyled">
+        <!-- <li routerLinkActive="active"><a routerLink="/admin/dashboard"> <i class="ti ti-dashboard"></i>Tableau de bord </a></li> -->
+        <li><a routerLink="/admin/buyers"> <i class="ti ti-user"></i> Acheteurs</a></li>
+        <li><a routerLink="/admin/sellers"> <i class="ti ti-user"></i> Vendeurs</a></li>
+        <!-- <li routerLinkActive="active"><a routerLink="catalogues"> <i class="fa fa-book"></i>Pays </a></li> -->
+        <li ><a routerLink="/"> <i class="ti ti-home"></i>Page d'accueil </a></li>
+      </ul>
+    </nav>
+    <div class="content-inner">
+      <router-outlet></router-outlet>
+      <app-dashboard-footer></app-dashboard-footer>
+    </div>
+  </div>
+</div>

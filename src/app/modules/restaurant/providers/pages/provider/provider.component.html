@@ -1,0 +1,99 @@
+<header class="page-header">
+  <div class="container-fluid">
+    <h2 class="no-margin-bottom">{{provider?.name}}</h2>
+  </div>
+</header>
+
+<div *ngIf="onAdd" class="alert alert-primary alert-dismissible fade show" role="alert">
+  <strong>Produit ajouté au panier</strong>
+</div>
+
+<section class="">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <h3>Produits</h3>
+          </div>
+          <div class="card-body">
+            <div class="container-fluid">
+              <div class="row" *ngIf="provider?.products.length">
+                <div class="col-lg-4 col-md-4 col-sm-6" *ngFor="let product of provider?.products">
+                  <div class="card h-100">
+                    <div class="card-header">
+                      <h5>{{product.name}}</h5>
+                    </div>
+                    <div class="card-body">
+                      <p>
+                        {{product.description}}
+                      </p>
+                      <p>
+                        {{product.price}}
+                      </p>
+                    </div>
+                    <div class="card-footer">
+                      <button (click)="addToCart(product)" type="button" name="button" class="btn btn-primary">Ajouter au panier</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row" *ngIf="provider?.products.length === 0">
+                <div class="col-lg-12">
+                  <p style="text-align:center">Aucun produit</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <h3>Coordonnées</h3>
+          </div>
+          <div class="card-body">
+            <p>
+              <i class="fa fa-envelope"></i> {{provider?.email}}
+            </p>
+            <p>
+              <i class="fa fa-phone"></i> {{provider?.tel}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+  <div role="document" class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="exampleModalLabel" class="modal-title">Ajouter au panier</h4>
+        <button #close type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+      </div>
+      <div class="modal-body">
+        <p>{{currentProduct?.name}} (Prix : {{currentProduct?.price}})</p>
+        <form>
+          <div class="form-group">
+            <label>Quantité</label>
+            <input type="number" placeholder="0" class="form-control" [(ngModel)]="currentQty" name="q" min="0">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" data-dismiss="modal" class="btn btn-secondary">Annuler</button>
+        <button (click)="add()" type="button" class="btn btn-primary">Ajouter</button>
+      </div>
+    </div>
+  </div>
+</div>
+<button #cart style="display: none;" type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Ajouter au panier </button>

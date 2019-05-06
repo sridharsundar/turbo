@@ -1,0 +1,61 @@
+<dashboard-title icon="ti ti-user" [title]="title"></dashboard-title>
+
+<section class="tables">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header align-items-center">
+            <div class="">
+              <h1>Categories</h1>
+            </div>
+            <br>
+            <button (click)="new()" type="button" class="btn btn-primary btn-new"><i class="ti ti-plus"></i> Nouvelle categorie</button>
+          </div>
+          <div class="card-body">
+
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Categorie</th>
+                    <th>Nombre de produits</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let cat of categories">
+                    <td>{{cat.name}}</td>
+                    <td>{{cat.products}}</td>
+                    <td class="td-actions">
+                      <a [routerLink]="'catalogs/' + cat._id" class="btn btn-info btn-option" name="button"> <i class="ti ti-eye"></i></a>
+                      <!-- <button type="button" class="btn btn-warning btn-option" name="button" (click)="edit(cat)">
+                        <i class="ti-pencil-alt"></i>
+                      </button>
+                      <button type="button" class="btn btn-danger btn-option" name="button" (click)="delete(cat)">
+                        <i class="ti ti-trash"></i>
+                      </button> -->
+                    </td>
+                  </tr>
+                </tbody>
+                <tbody class="empty-table">
+                  <tr *ngIf="isLoading">
+                    <td colspan="6"><i class="fa fa-spinner fa-spin" style="font-size:24px"></i></td>
+                  </tr>
+                </tbody>
+                <tbody class="empty-table">
+                  <tr *ngIf="!isLoading && categories.length == 0">
+                    <td colspan="6">Aucune categorie</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<new-category-modal (onNew)="onNew($event)" [seller]="seller"></new-category-modal>

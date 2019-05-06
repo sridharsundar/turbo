@@ -1,0 +1,93 @@
+<header class="page-header">
+  <div class="container-fluid">
+    <h2 class="no-margin-bottom">Profile</h2>
+  </div>
+</header>
+
+<div class="breadcrumb-holder container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: none!important; box-shadow: none">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/restaurant/profile">Profile</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/restaurant/settings">Paramètres</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<div *ngIf="editSuccess" class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Profile modifier</strong>
+</div>
+
+<div class="row">
+  <div class="offset-md-2 col-md-8">
+    <div class="card-body">
+      <div >
+        <div class="">
+          <div class="modal-content">
+            <form *ngIf="form" [formGroup]="form" (ngSubmit)="onEdit()">
+              <div class="modal-body">
+                <div class="form-group">
+                  <label class="form-control-label" for="input-name">Votre nom</label>
+                  <input
+                    [ngClass]="{'is-invalid': f.name.invalid && f.name.touched && f.name.errors.required}"
+                    id="input-name" type="text" class="form-control" formControlName="name">
+                    <div class="invalid-feedback">
+                       le nom est obligatoire
+                     </div>
+                </div>
+                <div class="form-group">
+                  <label for="textarea-desc" class="form-control-label">Présentation</label>
+                  <textarea
+                    [ngClass]="{'is-invalid': f.presentation.invalid && f.presentation.touched && f.presentation.errors.required}"
+                    id="textarea-desc" name="name" rows="8" class="form-control" formControlName="presentation"></textarea>
+                    <div class="invalid-feedback">
+                       Votre présentation obligatoire est obligatoire
+                     </div>
+                </div>
+                <div class="form-group">
+                  <label for="input-qty" class="form-control-label">Adresse</label>
+                  <input
+                    [ngClass]="{'is-invalid': f.address.invalid && f.address.touched && f.address.errors.required}"
+                    id="input-qty" type="text" class="form-control" formControlName="address">
+                    <div class="invalid-feedback">
+                       Adresse obligatoire
+                     </div>
+                </div>
+                <div class="form-group">
+                  <label for="input-qty" class="form-control-label">Ville</label>
+                  <input
+                    [ngClass]="{'is-invalid': f.city.invalid && f.city.touched && f.city.errors.required}"
+                    id="input-qty" type="text" class="form-control" formControlName="city">
+                    <div class="invalid-feedback">
+                       Ville obligatoire
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label for="input-price" class="form-control-label">Numéro de téléphone</label>
+                  <input
+                    [ngClass]="{'is-invalid': f.tel.invalid && f.tel.touched && f.tel.errors.required}"
+                    id="input-price" type="text" class="form-control" formControlName="tel">
+                  <div class="invalid-feedback">
+                     Numero de téléphone obligaoire
+                   </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Mettre à jour</button>
+                <br>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

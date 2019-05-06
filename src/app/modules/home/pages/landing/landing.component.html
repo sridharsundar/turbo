@@ -1,0 +1,100 @@
+<div class="container">
+  <div class="form-group search-box mt-11 pt-5">
+    <div class="input-group">
+      <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Recherche" (keyup.enter)="search()">
+      <div class="input-group-append">
+        <button (click)="search()" type="button" class="btn btn-icon">
+          <i class="ti ti-search"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="present-text">
+    <p>"Le moteur de recherche des professionnelles qui facilite l'achat et la <br> vente des produits agro-alimentaires"</p>
+  </div>
+</div>
+
+<!-- <div class="container">
+  <ais-instantsearch [config]="{ appId: 'PPSF5Q7Z1M', apiKey: '8748ea4785cecadacd9bf6368b4252da', indexName: 'turbo_catalogs_index' }">
+    <ais-search-box
+      placeholder="Recherche"
+      submitTitle="Go"
+      resetTitle="Clear"
+      [autofocus]="true"
+      >
+    </ais-search-box>
+    <ais-hits>
+      <ng-template let-hits="hits">
+        <div class="row ais-Hits-list" style="margin-top: 5px;">
+          <div *ngFor="let hit of hits" class="col-md-12 ais-Hits-item">
+            <div class="row" >
+              <div class="col-md-3">
+                <img src="{{hit.image_path}}" width="150px">
+                <br><br>
+                <p>{{hit.name}}</p>
+                <p>Prix : {{hit.price}}</p>
+              </div>
+              <div class="col-md-5">
+                <p>Produit : {{hit.name}}</p>
+                <p>Region : {{hit.state}}</p>
+                <p>Ville : {{hit.city}} Pays : {{hit.country}}</p>
+              </div>
+              <div class="col-md-4" style="text-align: right;">
+                <img src="http://www.clker.com/cliparts/d/L/P/X/z/i/no-image-icon-hi.png" width="150px">
+                <br><br>
+                <p>Tel : {{hit.tel}}</p>
+                <p>Email : {{hit.email}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </ng-template>
+    </ais-hits>
+    <ais-pagination
+      padding="2"
+      totalPages="5"
+      showFirst="false"
+      showLast="false"
+      showPrevious="false"
+      showNext="false"
+      >
+    </ais-pagination>
+
+  </ais-instantsearch>
+</div> -->
+<div class="char4">
+  <img src="assets/img/character4.png" alt="">
+</div>
+<div class="good-trolly">
+  <img src="assets/img/good_trolly.png" alt="">
+</div>
+<div class="char1">
+  <img src="assets/img/character1.png" alt="">
+</div>
+<div class="char2">
+  <img src="assets/img/character2.png" alt="">
+</div>
+<div class="char3">
+  <img src="assets/img/character3.png" alt="">
+</div>
+<!-- <div class="vegitable-box">
+  <img src="assets/img/vegitable_box.png" alt="">
+</div> -->
+<div class="sale">
+  <img src="assets/img/sale.png" alt="">
+</div>
+<footer class="text-center">
+		<div class="container">
+      <p class="copy-right-grids text-center">
+        <a href="#" target="_blank">Mentions légales & CGU</a>
+      </p>
+		</div>
+	</footer>
+
+<style media="screen">
+img {
+  max-width: 100%;
+}
+</style>

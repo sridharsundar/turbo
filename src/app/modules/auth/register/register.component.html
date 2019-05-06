@@ -1,0 +1,171 @@
+<div *ngIf="success" class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Inscription réussi. Connectez-vous pour continuer!</strong>
+</div>
+
+<div class="container-scroller">
+  <div class="container-fluid page-body-wrapper full-page-wrapper">
+    <div class="content-wrapper d-flex align-items-center auth">
+      <div class="row w-100">
+        <div class="col-lg-7 mx-auto">
+          <div class="auth-form-light text-left p-5">
+            <div class="brand-logo">
+              <h3 style="border-left: 3px #ddd solid;" class="pl-2">Inscription</h3>
+            </div>
+            <form class="" [formGroup]="form" (ngSubmit)="onSubmit()">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <select
+                      [ngClass]="{'is-invalid': f.role.invalid && f.role.touched && f.role.errors.required}"
+                      class="form-control form-control-lg" id="exampleFormControlSelect2" formControlName="role">
+                      <option value="" >Vous êtes ?</option>
+                      <option value="PROVIDER" >Je suis Acheteur</option>
+                      <option value="RESTAURANT">Je suis Vendeur</option>
+                    </select>
+                    <div class="invalid-feedback">
+                       Choisissez votre type compte
+                     </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="text"
+                      [ngClass]="{'is-invalid': f.name.invalid && f.name.touched && f.name.errors.required}"
+                      class="form-control form-control-lg" placeholder="Nom de la societé" formControlName="name">
+                    <div class="invalid-feedback">
+                       Nom la structure societé
+                     </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                      <select
+                      [ngClass]="{'is-invalid': f.role.invalid && f.role.touched && f.role.errors.required}"
+                      class="form-control form-control-lg" id="exampleFormControlSelect2" formControlName="role">
+                      <option value="" >Votre role ?</option>
+                      <option value="PROVIDER" >Je suis Acheteur</option>
+                      <option value="RESTAURANT">Je suis Vendeur</option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Choisissez votre type compte
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="email"
+                      [ngClass]="{'is-invalid': f.email.invalid && f.email.touched && f.email.errors.required}"
+                      class="form-control form-control-lg" placeholder="Votre nom" formControlName="email">
+                    <div class="invalid-feedback">
+                       Email obligatoire
+                     </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="email"
+                      [ngClass]="{'is-invalid': f.email.invalid && f.email.touched && f.email.errors.required}"
+                      class="form-control form-control-lg" placeholder="Votre prenom" formControlName="email">
+                    <div class="invalid-feedback">
+                       Email obligatoire
+                     </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="email"
+                      [ngClass]="{'is-invalid': f.email.invalid && f.email.touched && f.email.errors.required}"
+                      class="form-control form-control-lg" placeholder="Email" formControlName="email">
+                    <div class="invalid-feedback">
+                       Email obligatoire
+                     </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="password"
+                      [ngClass]="{'is-invalid': f.password.invalid && f.password.touched && f.password.errors.required}"
+                      class="form-control form-control-lg" placeholder="Mot de passe" formControlName="password">
+                    <div class="invalid-feedback">
+                       Mot de passe obligatoire
+                     </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <select
+                      [ngClass]="{'is-invalid': f.role.invalid && f.role.touched && f.role.errors.required}"
+                      class="form-control form-control-lg" id="exampleFormControlSelect2" formControlName="role">
+                      <option value="" >Vous Pays ?</option>
+                      <option value="PROVIDER" >Je suis fournisseur</option>
+                      <option value="RESTAURANT">Je suis restaurateur</option>
+                    </select>
+                    <div class="invalid-feedback">
+                       Choisissez votre type compte
+                     </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="text" [ngClass]="{'is-invalid': f.city.invalid && f.city.touched && f.city.errors.required}" class="form-control form-control-lg " placeholder="Ville" formControlName="city">
+                    <div class="invalid-feedback">
+                       Ville obligatoire
+                     </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="text"
+                      [ngClass]="{'is-invalid': f.tel.invalid && f.tel.touched && f.tel.errors.required}"
+                      prefix="+33 "
+                      mask="00 00 00 00 00"
+                      class="form-control form-control-lg" placeholder="Telephone" formControlName="tel">
+                    <div class="invalid-feedback">
+                       Numero de téléphone obligaoire
+                     </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="text"
+                      [ngClass]="{'is-invalid': f.address.invalid && f.address.touched && f.address.errors.required}"
+                      class="form-control form-control-lg" placeholder="Adresse" formControlName="address">
+                    <div class="invalid-feedback">
+                       Adrress obligatoire
+                     </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="text" class="form-control form-control-lg" placeholder="Code postal" formControlName="postalCode">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-centered">
+                <button type="submit" class="tn btn-block btn-primary btn" [disabled]="loading">
+                  <span *ngIf="!loading">Je m'inscris</span>
+                  <i *ngIf="loading" class="fa fa-spinner fa-spin" style="font-size:24px"></i>
+                </button>
+              </div>
+              <div class="text-center mt-4 font-weight-light">
+                Vous avez deja un compte? <a routerLink="/auth/login" class="text-primary">Connexion</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- content-wrapper ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
+</div>
+
+
+<style media="screen">
+.alert {
+  position: fixed;
+}
+select.form-control {
+  border: 1px solid;
+}
+</style>
